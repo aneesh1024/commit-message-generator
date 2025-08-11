@@ -14,7 +14,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', async (req: Request, res: Response) => {
   res.send('Hello, World!');
 });
 
