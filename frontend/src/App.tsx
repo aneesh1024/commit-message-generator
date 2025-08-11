@@ -28,13 +28,16 @@ const App: React.FC = () => {
     setResult(null);
 
     try {
-      const response = await fetch('http://localhost:3000/generate-commit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text: diff }),
-      });
+      const response = await fetch(
+        'https://commit-message-generator-nine.vercel.app/generate-commit',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ text: diff }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
