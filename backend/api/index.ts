@@ -14,6 +14,10 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello, World!');
+});
+
 app.post('/generate-commit', async (req: Request, res: Response) => {
   const { text } = req.body;
 
@@ -71,6 +75,4 @@ app.post('/generate-commit', async (req: Request, res: Response) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+export default app;
